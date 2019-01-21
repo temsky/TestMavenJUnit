@@ -10,7 +10,6 @@ public class TestTask {
 
     public TestTask(String str) {
         sourceData = StringToIntArray(str);
-
     }
 
     public void doIt(){
