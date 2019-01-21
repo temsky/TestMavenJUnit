@@ -5,7 +5,7 @@ import java.util.List;
  * Created by me on 21.01.2019.
  */
 public class TestTask {
-    int[] sourceData;
+    private int[] sourceData;
     private int  countStep, lengthCycle;
 
     public TestTask(String str) {
@@ -60,10 +60,9 @@ public class TestTask {
         }
 
         //Вывод результата
-        /*
         for(int[] array:lstData){
             printArray(array);
-        }*/
+        }
 
     }
 
