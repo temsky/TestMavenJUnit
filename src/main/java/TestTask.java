@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -50,9 +51,11 @@ public class TestTask {
                     countStep = lstData.size();
                     lengthCycle =  lstData.size()- i;
                     exit = true;
+                    break;
                 }
-
             }
+
+
 
             lstData.add(curData);
             sourceData = curData;
@@ -78,7 +81,7 @@ public class TestTask {
 
 
     //функция для сравнения массивов на равенство
-    public static boolean compareArrays(int[] array1, int[] array2){
+    static boolean compareArrays(int[] array1, int[] array2){
         for(int i=0; i < array1.length;i++){
             if(array1[i] != array2[i]) return false;
         }
@@ -86,7 +89,7 @@ public class TestTask {
     }
 
     //функция поиска индекса элемента, имеющего максимальное значение в массиве
-    public static int findIndexMaxNumber(int[] array){
+    static int findIndexMaxNumber(int[] array){
         int maxIndex= 0;
         for (int i=1;i<array.length;i++){
             if (array[maxIndex] < array[i]) {
@@ -97,7 +100,7 @@ public class TestTask {
     }
 
     //функция печати массива в заданном виде
-    public static void printArray(int[] array){
+    static void printArray(int[] array){
         for(int i=0;i <array.length;i++) {
             System.out.print(array[i] + " ");
         }
