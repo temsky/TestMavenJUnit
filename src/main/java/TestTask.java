@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by me on 21.01.2019.
@@ -14,7 +13,9 @@ public class TestTask {
 
     public void doIt(){
         List<int[]> lstData = new ArrayList<>();
+        Set<List<Integer>> setData = new HashSet<>();
         lstData.add(sourceData);
+        setData.add(arrToList(sourceData));
 
         while(true) {
             int[] curData = sourceData.clone();
@@ -43,18 +44,20 @@ public class TestTask {
                 }
             }
 
-            //сравнение полученного массива с другими, полученными ранее
+
             boolean exit=false;
-            for(int i=0; i <lstData.size();i++){
-                if (compareArrays(lstData.get(i), curData)) {
-                    countStep = lstData.size();
-                    lengthCycle =  lstData.size()- i;
-                    exit = true;
-                    break;
+            boolean addToSet= setData.add(arrToList(curData));
+            if(!addToSet){
+                //сравнение полученного массива с другими, полученными ранее
+                for(int i=0; i <lstData.size();i++){
+                    if (compareArrays(lstData.get(i), curData)) {
+                        countStep = lstData.size();
+                        lengthCycle =  lstData.size()- i;
+                        exit = true;
+                        break;
+                    }
                 }
             }
-
-
 
             lstData.add(curData);
             sourceData = curData;
@@ -62,9 +65,10 @@ public class TestTask {
         }
 
         //Вывод результата
+        /*
         for(int[] array:lstData){
             printArray(array);
-        }
+        }*/
 
     }
 
@@ -119,5 +123,14 @@ public class TestTask {
             }
         }
         return  results;
+    }
+
+    static List<Integer> arrToList(int[] arr){
+         List<Integer> intList = new ArrayList<>();
+        for (int i : arr)
+        {
+            intList.add(i);
+        }
+        return intList;
     }
 }
